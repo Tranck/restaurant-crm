@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org/">
+<head>
+</head>
+<body>
+
+    <!-- CONTROL ELEMENTS FOR VIEW -->
+
+    <th:block th:fragment="view_data(title, value)">
+        <div class="row">
+            <span th:class="col-4" th:text="${title}"></span>
+            <span th:class="col-8" th:text="${value}"></span>
+        </div>
+    </th:block>
+
+    <!-- CONTROL ELEMENTS FOR INPUT -->
+
+    <th:block th:fragment="input_text(title, name, value)">
+        <label th:class="form-label" th:for="${name}" th:text="${title}"></label>
+        <input th:class="form-control" th:type="text" th:id="${name}" th:name="${name}" th:value="${value}"/>
+    </th:block>
+
+    <th:block th:fragment="input_number(title, name, value)">
+        <label th:class="form-label" th:for="${name}" th:text="${title}"></label>
+        <input th:class="form-control " th:type="number" th:id="${name}" th:name="${name}" th:value="${value}"/>
+    </th:block>
+
+    <th:block th:fragment="input_password(title, name)">
+        <label th:class="form-label" th:for="${name}" th:text="${title}"></label>
+        <input th:class="form-control" th:type="password" th:id="${name}" th:name="${name}"/>
+    </th:block>
+
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org/">
+<head>
+  <title>Title</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link th:href="@{../../css/bootstrap.min.css}" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <form action="edit" method="post">
+        <div class="row mb-3 visually-hidden">
+          <div class="col-12">
+            <div th:replace="fragments/control :: input_number('Id:', 'id', ${account.id})"></div>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-12">
+            <div th:replace="fragments/control :: input_text('Enter username', 'username', ${account.username})"></div>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-12">
+            <div th:replace="fragments/control :: input_password('Enter password', 'password')"></div>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-12">
+            <div th:replace="fragments/control :: input_number('Enter role:', 'role', ${account.role})"></div>
+          </div>
+        </div>
+        <div class="d-grid gap-2">
+            <button class="btn btn-success" type="submit">Edit</button>
+            <button class="btn btn-secondary" type="reset">Clear</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+</body>
+</html>
