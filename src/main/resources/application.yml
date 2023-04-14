@@ -3,3 +3,5 @@ spring:
     url: jdbc:postgresql://localhost:5432/restaurant
     username: postgres
     password: postgres
+  liquibase:
+    change-log: db/changelog/db-changelog-master.xml
