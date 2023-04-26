@@ -4,5 +4,7 @@
                    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
 
     <changeSet id="1.0" author="anton.chernyavsky"/>
+    <include relativeToChangelogFile="true" file="20230331201600__create_table_item_category.xml"/>
+    <include relativeToChangelogFile="true" file="20230407200700__create_table_item.xml"/>
 
 </databaseChangeLog>

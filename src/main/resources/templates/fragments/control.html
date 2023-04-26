@@ -13,21 +13,38 @@
         </div>
     </th:block>
 
+    <th:block th:fragment="view_picture(picture)">
+        <div class="row">
+            <div class="col-12">
+                <img class="img img-fluid" th:src="${picture}">
+            </div>
+        </div>
+    </th:block>
+
     <!-- CONTROL ELEMENTS FOR INPUT -->
 
     <th:block th:fragment="input_text(title, name, value)">
         <label th:class="form-label" th:for="${name}" th:text="${title}"></label>
         <input th:class="form-control" th:type="text" th:id="${name}" th:name="${name}" th:value="${value}"/>
+        <div th:if="${#fields.hasErrors(name)}">
+            <p class="text-danger" th:each="error : ${#fields.errors(name)}" th:text="${error}"></p>
+        </div>
     </th:block>
 
     <th:block th:fragment="input_number(title, name, value)">
         <label th:class="form-label" th:for="${name}" th:text="${title}"></label>
         <input th:class="form-control " th:type="number" th:id="${name}" th:name="${name}" th:value="${value}"/>
+        <div th:if="${#fields.hasErrors(name)}">
+            <p class="text-danger" th:each="error : ${#fields.errors(name)}" th:text="${error}"></p>
+        </div>
     </th:block>
 
     <th:block th:fragment="input_password(title, name)">
         <label th:class="form-label" th:for="${name}" th:text="${title}"></label>
         <input th:class="form-control" th:type="password" th:id="${name}" th:name="${name}"/>
+        <div th:if="${#fields.hasErrors(name)}">
+            <p class="text-danger" th:each="error : ${#fields.errors(name)}" th:text="${error}"></p>
+        </div>
     </th:block>
 
 </body>
