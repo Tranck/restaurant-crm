@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org/">
+<head>
+    <title>Title</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link th:href="@{../../css/bootstrap.min.css}" rel="stylesheet"></head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <form action="" method="post">
+                <div class="row">
+                    <div class="col-12">
+                        <div th:replace="fragments/control :: input_text('Id', 'id', ${item.id})"></div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div th:replace="fragments/control :: input_text('Enter name', 'name', ${item.name})"></div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div th:replace="fragments/control :: input_text('Enter description', 'description', ${item.description})"></div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div th:replace="fragments/control :: input_number('Enter number of category', 'category', ${item.category})"></div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div th:replace="fragments/control :: input_number('Enter weight', 'weight', ${item.weight})"></div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div th:replace="fragments/control :: input_text('Enter ulr for picture', 'picture', ${item.picture})"></div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div th:replace="fragments/control :: input_number('Enter price', 'price', ${item.price})"></div>
+                    </div>
+                </div>
+                <div class="d-grid gap-2">
+                    <button class="btn btn-primary" type="submit">Save</button>
+                    <button class="btn btn-secondary" type="reset">Clear</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>
