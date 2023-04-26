@@ -1,0 +1,13 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+    <changeSet author="anton.chernyavsky" id="1.0">
+        <sqlFile dbms="postgresql" path="sql/V20230331201600_create_table_item_category.sql"
+                 relativeToChangelogFile="true" splitStatements="false"/>
+        <rollback>
+            <sqlFile path="sql/V20230331201600_create_table_item_category_rollback.sql"
+                     relativeToChangelogFile="true" splitStatements="false"/>
+        </rollback>
+    </changeSet>
+</databaseChangeLog>
