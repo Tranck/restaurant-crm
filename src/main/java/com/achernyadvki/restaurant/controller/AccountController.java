@@ -7,7 +7,10 @@ import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
 
 @Controller
 @RequestMapping(AccountController.ROOT_MAPPING)
@@ -26,11 +29,18 @@ public class AccountController {
 
     @GetMapping("create")
     public String createAccount(Model model) {
+        model.addAttribute("account", new AccountForm());
         return "account/create";
     }
 
     @PostMapping("create")
-    public String createAccount(Model model, @ModelAttribute AccountForm accountForm) {
+    public String createAccount(Model model, @Valid @ModelAttribute("account") AccountForm accountForm,
+                                Errors errors) {
+        if (errors.hasErrors()) {
+            model.addAttribute("account", accountForm);
+            return "account/create";
+        }
+
         accountService.createAccount(accountForm);
         return "redirect:/";
     }
@@ -42,7 +52,13 @@ public class AccountController {
     }
 
     @PostMapping("{id}/edit")
-    public String editAccount(Model model, @PathVariable Long id, @ModelAttribute AccountForm accountForm) {
+    public String editAccount(@PathVariable Long id, @Valid @ModelAttribute AccountForm accountForm, Errors errors,
+                              Model model) {
+        if (errors.hasErrors()) {
+            model.addAttribute("account", accountForm);
+            return "account/edit";
+        }
+
         accountService.editAccount(accountForm);
         return "redirect:/";
     }

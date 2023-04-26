@@ -10,7 +10,7 @@
 <div class="container">
   <div class="row">
     <div class="col-12">
-      <form action="create" method="post">
+      <form action="create" method="post" th:object="${account}">
         <div class="row mb-3">
           <div class="col-12">
             <div th:replace="fragments/control :: input_text('Enter username', 'username', '')"></div>
